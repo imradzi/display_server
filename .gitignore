@@ -1,0 +1,118 @@
+# Build directories
+build/
+**/build/
+cmake-build-*/
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Generated protobuf files (will be regenerated)
+backend/build/generated/
+**/generated/
+*.pb.cc
+*.pb.h
+*.grpc.pb.cc
+*.grpc.pb.h
+
+# Logs
+*.log
+logs/
+**/logs/
+
+# Process IDs
+*.pid
+pids/
+**/pids/
+
+# Environment files (keep .env.example, exclude actual .env)
+.env
+.env.local
+.env.docker
+backend/.env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Node.js (for frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Next.js (for frontend)
+.next/
+out/
+
+# Database dumps
+*.dump
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Docker
+.dockerignore
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Test artifacts
+test_results/
+
+# Backup files
+*.bak
+*.backup
+
+# Package files
+*.tar.gz
+*.zip
+*.rar
