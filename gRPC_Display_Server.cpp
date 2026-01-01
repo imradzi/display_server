@@ -13,7 +13,7 @@
 #include "global.h"
 #include "words.h"
 #include "gRPC_Display_Server.h"
-#include "logger.h"
+#include "logger/logger.h"
 #include "wx/filename.h"
 #include "wx/dir.h"
 #include <boost/algorithm/string.hpp>
