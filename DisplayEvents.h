@@ -1,5 +1,5 @@
 #pragma once
-extern bool isShuttingDown;
+extern std::atomic<bool> isShuttingDown;
 
 enum {
     EvQuit = 101,

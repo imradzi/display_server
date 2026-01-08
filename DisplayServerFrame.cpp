@@ -243,7 +243,7 @@ namespace {
             SetIcon(wxICON(sample));
 
             Bind(
-                wxEVT_COMMAND_MENU_SELECTED, [this](wxCommandEvent &e) {isShuttingDown = true;  this->Close(true); }, EvQuit);
+                wxEVT_COMMAND_MENU_SELECTED, [this](wxCommandEvent &e) {isShuttingDown.store(true, std::memory_order_release);  this->Close(true); }, EvQuit);
             Bind(
                 wxEVT_COMMAND_MENU_SELECTED, [this](wxCommandEvent &) {
                     wxMessageBox(wxString::Format("PharmaPOS Display Server\nrunning under %s.", wxGetOsDescription()), "About PharmaPOS Display Server", wxOK | wxICON_INFORMATION, this);

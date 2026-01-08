@@ -84,5 +84,5 @@ void StopDisplayService() {
     if (displayServiceThread.joinable()) displayServiceThread.join();
 }
 
-bool isShuttingDown = false;
+std::atomic<bool> isShuttingDown{false};
 constexpr auto MAX_PATH_SIZE = 2048;
