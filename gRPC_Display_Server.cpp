@@ -18,6 +18,7 @@
 #include "wx/dir.h"
 #include <boost/algorithm/string.hpp>
 #include <boost/tokenizer.hpp>
+#include "WakeableSleeper.h"
 #include "DisplayEvents.h"
 
 extern wxEvtHandler* eventHandler;
@@ -84,5 +85,5 @@ void StopDisplayService() {
     if (displayServiceThread.joinable()) displayServiceThread.join();
 }
 
-std::atomic<bool> isShuttingDown{false};
+ObservableAtomic isShuttingDown{false};
 constexpr auto MAX_PATH_SIZE = 2048;
