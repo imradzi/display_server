@@ -37,7 +37,7 @@ PPOS::DisplayClient::DisplayClient(const std::string &hostName, long portNo) {
         std::string url = fmt::format(URL, fmt::arg("host", hostIP), fmt::arg("port", portNo));  // 32256 normal, 33256 grpc
         grpcChannel = grpc::CreateChannel(url, grpc::InsecureChannelCredentials());
         displayStub = ::DisplayProto::DisplayService::NewStub(grpcChannel);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         auto v = fmt::format("PPOS::DisplayClient constructor: grpc exception: {}", e.what());
         LOG_ERROR(v);
     } catch (...) {
@@ -54,7 +54,7 @@ void PPOS::DisplayClient::StopIt(int panel) {
         DisplayProto::DisplayRecord rec;
         rec.set_panel(panel);
         grpc::Status status = displayStub->StopIt(&context, rec, &rv);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         LOG_ERROR("PPOS::DisplayClient constructor: grpc exception: {}", e.what());
     } catch (...) {
         LOG_ERROR("PPOS::DisplayClient constructor: unknown exception..");
@@ -69,7 +69,7 @@ void PPOS::DisplayClient::RunDemo(int panel) {
         DisplayProto::DisplayRecord rec;
         rec.set_panel(panel);
         grpc::Status status = displayStub->RunDemo(&context, rec, &rv);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         LOG_ERROR("PPOS::DisplayClient constructor: grpc exception: {}", e.what());
     } catch (...) {
         LOG_ERROR("PPOS::DisplayClient constructor: unknown exception..");
@@ -84,7 +84,7 @@ void PPOS::DisplayClient::ClearDisplay(int panel) {
         DisplayProto::DisplayRecord rec;
         rec.set_panel(panel);
         grpc::Status status = displayStub->ClearDisplay(&context, rec, &rv);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         LOG_ERROR("PPOS::DisplayClient constructor: grpc exception: {}", e.what());
     } catch (...) {
         LOG_ERROR("PPOS::DisplayClient constructor: unknown exception..");
@@ -100,7 +100,7 @@ void PPOS::DisplayClient::DeleteDisplay(int panel, int row) {
         rec.set_panel(panel);
         rec.set_row_no(row);
         grpc::Status status = displayStub->DeleteDisplay(&context, rec, &rv);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         LOG_ERROR("PPOS::DisplayClient constructor: grpc exception: {}", e.what());
     } catch (...) {
         LOG_ERROR("PPOS::DisplayClient constructor: unknown exception..");
@@ -120,7 +120,7 @@ void PPOS::DisplayClient::ShowLine(int panel, int row, std::string desc, double 
         rec.set_total(total);
         rec.set_quantity(qty);
         grpc::Status status = displayStub->ShowLine(&context, rec, &rv);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         LOG_ERROR("PPOS::DisplayClient constructor: grpc exception: {}", e.what());
     } catch (...) {
         LOG_ERROR("PPOS::DisplayClient constructor: unknown exception..");
@@ -139,7 +139,7 @@ void PPOS::DisplayClient::ShowTotal(int panel, double total, std::string totalTe
         rec.set_balance(balance);
         rec.set_balance_text(balanceText);
         grpc::Status status = displayStub->ShowTotal(&context, rec, &rv);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         LOG_ERROR("PPOS::DisplayClient constructor: grpc exception: {}", e.what());
     } catch (...) {
         LOG_ERROR("PPOS::DisplayClient constructor: unknown exception..");
