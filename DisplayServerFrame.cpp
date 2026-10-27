@@ -34,7 +34,7 @@ wxDEFINE_EVENT(wpEVT_DISPLAY_STOPIT, wpEvent);
 
 std::vector<std::string> listOfAdvert {"video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4"};
 
-std::string version {"PharmaPOS Display Server v 0.9"};
+std::string version {"PPOS Display Server v 0.9"};
 
 namespace {
     class PanelTop : public wxPanel {
@@ -246,7 +246,7 @@ namespace {
                 wxEVT_COMMAND_MENU_SELECTED, [this](wxCommandEvent &e) {isShuttingDown.store(true);  this->Close(true); }, EvQuit);
             Bind(
                 wxEVT_COMMAND_MENU_SELECTED, [this](wxCommandEvent &) {
-                    wxMessageBox(wxString::Format("PharmaPOS Display Server\nrunning under %s.", wxGetOsDescription()), "About PharmaPOS Display Server", wxOK | wxICON_INFORMATION, this);
+                    wxMessageBox(wxString::Format("PPOS Display Server\nrunning under %s.", wxGetOsDescription()), "About PPOS Display Server", wxOK | wxICON_INFORMATION, this);
                 },
                 EvAbout);
 
@@ -373,7 +373,7 @@ public:
             return false;
 
         GetAdvertList();
-        frame = new DisplayFrame(wxString("PharmaPOS Display ver ") + global::Data::wpVersionNo);
+        frame = new DisplayFrame(wxString("PPOS Display ver ") + global::Data::wpVersionNo);
         frame->Show(true);
         eventHandler = frame->GetEventHandler();
         StartDisplayService(global::g.displayPortNo);
